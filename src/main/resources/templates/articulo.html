@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, iitial-escale=1.0">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+<div class="mdc-card " style="background-color:#ff3d00"> 
+  <div class="mdc-card__primary-action" tabindex="0">
+    <div class="mdc-card__ripple"></div>
+  </div>
+  <div class="mdc-top-app-bar__row">
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+      <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+      <span class="mdc-top-app-bar__title">
+      </span>
+    </section>
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Bookmark this page">bookmark</button>
+    </section>
+  </div>  
+</div>
+
+<div th:if="${articulos.size()==0}">No existe ningun proveedor</div>
+<div class="mdc-data-table__table-container">
+ <table class="mdc-data-table__table-container text-center" aria-label="Dessert calories" style="background-color:#ff3d00" th:if="${articulos.size() > 0}">
+  <thead>
+  <tr class="mdc-data-table__header-row">
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ff8a65">RFC</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ffcccb">Razon</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ff8a65">NomContacto</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ffcccb">Calle</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ff8a65">noInt</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ffcccb">noExt</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ff8a65">Colonia</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ffcccb">Delegacion</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ff8a65">Pais</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ffcccb">CP</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ff8a65">Email</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ffcccb">Telefono</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ff8a65">Entidad</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ffcccb">Municipio</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ff8a65">Estatus</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ffcccb">Actualizar</th>
+  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader"  scope="col" style="background-color:#ff8a65">Eliminar</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="mdc-data-table__header-row" th:each="ar : ${articulos}">
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.cod_barras}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.cod_asociado}" style="background-color:#ffcccb"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.id_clasificacion}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.cod_interno}" style="background-color:#ffcccb"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.descripcion}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.descripcion_corta}" style="background-color:#ffcccb"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.cantidad_um}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.id_unidad}" style="background-color:#ffcccb"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.id_proveedor}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.precio_compra}" style="background-color:#ffcccb"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.utilidad}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.precio_venta}" style="background-color:#ffcccb"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.tipo_articulo}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.stock}" style="background-color:#ffcccb"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.stock_min}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.stock_max}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.iva}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.kit_fecha_ini}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.kit_fecha_fin}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.articulo_disponible}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.kit}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.fecha_registro}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.visible}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.puntos}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.last_update_inventory}" style="background-color:#ff8a65"></td>
+  <td class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col" th:text="${ar.cve_producto}" style="background-color:#ff8a65"></td>
+  </tr>
+  </tbody>
+  </table>
+
+
+</body>
+</html>
